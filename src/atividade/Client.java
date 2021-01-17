@@ -30,16 +30,16 @@ public class Client {
         InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         while (true) {
-
             String clientChoice = scanner.nextLine();
-            printWriter.println(clientChoice);
-            printWriter.flush();
-            String serverResponse = bufferedReader.readLine();
-            System.out.println(serverResponse);
             if (clientChoice.equals("0")) {
                 socket.close();
                 break;
             }
+            printWriter.println(clientChoice);
+            printWriter.flush();
+            String serverResponse = bufferedReader.readLine();
+            System.out.println(serverResponse);
+
         }
     }
 }

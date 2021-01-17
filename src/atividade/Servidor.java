@@ -21,7 +21,7 @@ public class Servidor {
         PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
         while (true) {
             String clientResponse = bufferedReader.readLine();
-            if (clientResponse == null || clientResponse.equals("0"))
+            if (clientResponse == null)
                 break;
             printWriter.println(doSwitch(clientResponse));
             printWriter.flush();
@@ -52,7 +52,7 @@ public class Servidor {
 
     public static String convertResponse(long response) {
         double converted = (double) response / 1024 / 1024 / 1024;
-        return String.valueOf(converted) +" GB";
+        return converted +" GB";
     }
 
     public static String getSystemMemoryInfo(int memoryType) {
